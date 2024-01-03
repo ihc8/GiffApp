@@ -1,0 +1,13 @@
+<h5>Buscar:</h5>
+<div class="input-group">
+  <input type="text"
+         class="form-control"
+         placeholder="Buscar gifs.."
+         (keyup.enter)="buscarEtiqueta()"
+         #txtInputEtiqueta>
+  <div class="input-group-append">
+    <button class="btn btn-outline-secondary"
+            type="button"
+            (click)="buscarEtiqueta()">Buscar</button>
+  </div>
+</div>

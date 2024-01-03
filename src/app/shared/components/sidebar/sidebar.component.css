@@ -1,0 +1,9 @@
+#sidebar{
+/* Vh para ocupar hasta abajo  */
+  height: 100vh;
+  width: 250px;
+}
+#title{
+  text-align: center;
+  background-color: gray;
+}
