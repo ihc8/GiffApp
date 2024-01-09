@@ -13,7 +13,9 @@ export class GifsService {
   private apiKey:string='EQGcExiTy8NNOHD75LZ5cyfRnsbqPgYm';
   private serviceUrl:string='https://api.giphy.com/v1/gifs';
 
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient) {
+    this.cargarLocalStorage();
+  }
 
   public listadoGifs:Gif[]=[];
 
@@ -50,11 +52,18 @@ export class GifsService {
       this.listadoGifs = resp.data;  // Actualiza la lista de GIFs con la respuesta de la API
       console.log(this.listadoGifs);
     });
+    this.almacenarLocalStorage();
   }
 
-
-
-
+private almacenarLocalStorage():void{
+  localStorage.setItem('historial',JSON.stringify(this._historialEtiquetas));
+}
+private cargarLocalStorage():void{
+  if(!localStorage.getItem('historial'))return;
+  this._historialEtiquetas=JSON.parse(localStorage.getItem('historial')!);
+  if(this._historialEtiquetas.length===0)return;
+  this.EnviarEtiqueta(this._historialEtiquetas[0]);
+}
   }
 
 
